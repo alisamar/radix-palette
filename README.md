@@ -81,20 +81,20 @@ module.exports = {
         brand: {
           // If a specific color number is provided,
           // return the transformed single color
-          light: radixPaletteToTailwind("purple", 8),
-          DEFAULT: radixPaletteToTailwind("purple", 10),
-          dark: radixPaletteToTailwind("purple", 12),
+          light: radixPaletteToTailwind({ palette: "purple", number: 8 }),
+          DEFAULT: radixPaletteToTailwind({ palette: "purple", number: 10 }),
+          dark: radixPaletteToTailwind({ palette: "purple", number: 12 }),
         },
 
         // If no number is provided, return all colors in the family
         // (optionally with alpha and additional colors)
 
         // slate with alpha and additional colors
-        slate: radixPaletteToTailwind("slate", null, true, true),
+        slate: radixPaletteToTailwind({ palette: "slate" }),
         // red with alpha colors
-        red: radixPaletteToTailwind("red", null, true),
+        red: radixPaletteToTailwind({ palette: "red", includeAlpha: true, includeAdditionalColors: false }),
         // orange with additional colors only
-        orange: radixPaletteToTailwind("orange", null, false, true),
+        orange: radixPaletteToTailwind({ palette: "orange", includeAlpha: false, includeAdditionalColors: true }),
         // ...
       },
       // ...
