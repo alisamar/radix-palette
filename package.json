@@ -22,7 +22,8 @@
       "require": "./dist/utils.js",
       "import": "./dist/utils.mjs",
       "default": "./dist/utils.d.mts"
-    }
+    },
+    "./dist/*": "./dist/*"
   },
   "repository": {
     "type": "git",
