@@ -1,0 +1,6 @@
+eval "$(fnm env --use-on-cd)"
+
+which node
+node -v
+
+pnpm build && pnpm test

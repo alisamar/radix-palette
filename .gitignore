@@ -1,0 +1,9 @@
+/node_modules/
+/types
+.DS_Store
+/*.css
+index.js
+index.mjs
+dist
+*.bak
+*.tgz

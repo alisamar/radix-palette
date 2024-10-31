@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "types",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "target": "ES2019",
+    "downlevelIteration": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src"],
+  "exclude": []
+}

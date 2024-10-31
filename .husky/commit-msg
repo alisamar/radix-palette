@@ -1,0 +1,9 @@
+eval "$(fnm env --use-on-cd)"
+
+which node
+node -v
+
+echo "Run commit-msg hook"
+npx --no -- commitlint --edit "$1"
+# pnpx --no -- commitlint --edit $1
+# pnpm dlx commitlint --edit $1

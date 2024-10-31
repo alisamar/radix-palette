@@ -1,0 +1,68 @@
+{
+  "name": "radix-palette",
+  "description": "Radix Palette is a TailwindCSS utility that enhances Radix Colors by solving key integration challenges.",
+  "version": "0.1.0",
+  "files": [
+    "dist/**/*",
+    "!**/*.tsbuildinfo",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "require": "./dist/utils.js",
+      "import": "./dist/utils.mjs",
+      "default": "./dist/utils.d.mts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisamar/radix-palette.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alisamar/radix-palette/issues"
+  },
+  "homepage": "https://github.com/alisamar/radix-palette#readme",
+  "scripts": {
+    "build": "pnpm clean && pnpm build:tsc && pnpm build:css",
+    "build:tsc": "tsup src/index.ts src/utils.ts",
+    "build:css": "node ./scripts/build.js",
+    "clean": "rm -f -R tsconfig.tsbuildinfo dist",
+    "prepack": "pnpm build",
+    "release": "standard-version",
+    "prepare": "husky",
+    "test": "jest"
+  },
+  "keywords": [
+    "radix",
+    "colors",
+    "tailwind"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/node": "^22.8.6",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@7.3.0",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7"
+  }
+}
