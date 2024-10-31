@@ -1,7 +1,7 @@
 {
   "name": "radix-palette",
   "description": "Radix Palette is a TailwindCSS utility that enhances Radix Colors by solving key integration challenges.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": [
     "dist/**/*",
     "!**/*.tsbuildinfo",

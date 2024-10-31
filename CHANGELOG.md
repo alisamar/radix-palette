@@ -1,6 +1,13 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. Visit [Radix Palette](https://github.com/alisamar/radix-palette) for more details.
+### [0.1.2](https://github.com/alisamar/radix-palette/compare/0.1.1...0.1.2) (2024-10-31)
+
+
+### ✨ Features
+
+* Add wildcard export for dist files in package.json ([cf78c89](https://github.com/alisamar/radix-palette/commit/cf78c89b8d24f976cb0b63ad13a4a91d19fa6276))
+
 ### [0.1.1](https://github.com/alisamar/radix-palette/compare/0.1.0...0.1.1) (2024-10-31)
 
 
