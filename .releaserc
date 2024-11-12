@@ -1,0 +1,124 @@
+{
+  "tagFormat": "${version}",
+  "branches": [
+    "master",
+    "next"
+  ],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "parserOpts": {
+          "noteKeywords": [
+            "BREAKING CHANGE",
+            "BREAKING CHANGES",
+            "BREAKING"
+          ]
+        },
+        "releaseRules": [
+          {
+            "breaking": true,
+            "release": "major"
+          },
+          {
+            "type": "feat",
+            "release": "minor"
+          },
+          {
+            "type": "fix",
+            "release": "patch"
+          },
+          {
+            "type": "style",
+            "release": "patch"
+          },
+          {
+            "type": "refactor",
+            "release": "patch"
+          },
+          {
+            "type": "perf",
+            "release": "patch"
+          },
+          {
+            "type": "chore",
+            "release": false
+          },
+          {
+            "type": "revert",
+            "release": "patch"
+          },
+          {
+            "type": "test",
+            "release": "patch"
+          },
+          {
+            "type": "build",
+            "release": "patch"
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {
+              "type": "feat",
+              "section": "✨ Features"
+            },
+            {
+              "type": "fix",
+              "section": "🐛 Bug Fixes"
+            },
+            {
+              "type": "chore",
+              "hidden": false,
+              "section": "🚚 Miscellaneous Chores"
+            },
+            {
+              "type": "docs",
+              "hidden": false,
+              "section": "📝 Documentation"
+            },
+            {
+              "type": "style",
+              "hidden": false,
+              "section": "💄 Styling"
+            },
+            {
+              "type": "refactor",
+              "hidden": false,
+              "section": "♻️ Code Refactoring"
+            },
+            {
+              "type": "perf",
+              "hidden": false,
+              "section": "⚡️ Performance Improvements"
+            },
+            {
+              "type": "test",
+              "hidden": false,
+              "section": "✅ Testing"
+            },
+            {
+              "type": "build",
+              "hidden": false,
+              "section": "🏗️ Maintenance"
+            },
+            {
+              "type": "ci",
+              "hidden": false,
+              "section": "👷 Continuous Integration"
+            }
+          ]
+        }
+      }
+    ],
+    "@semantic-release/npm",
+    "@semantic-release/github"
+  ]
+}

@@ -1,3 +1,11 @@
+[![npm package][npm-img]][npm-url]
+[![Downloads][downloads-img]][downloads-url]
+[![Build Status][build-img]][build-url]
+[![Issues][issues-img]][issues-url]
+[![Code Coverage][codecov-img]][codecov-url]
+[![Commitizen Friendly][commitizen-img]][commitizen-url]
+[![Semantic Release][semantic-release-img]][semantic-release-url]
+
 # Radix Palette
 
 Radix Palette is a TailwindCSS utility that enhances Radix Colors by solving key integration challenges. It provides a seamless, flexible color management solution for web developers, supporting alpha value injection, P3 color display, and unified light/dark mode color systems. The project simplifies color design by offering a more intuitive and technically robust approach to color implementation in modern web development.
@@ -108,3 +116,18 @@ module.exports = {
 
 - Tailwind configuration: https://tailwindcss.com/docs/configuration
 - Original radix palette: https://github.com/radix-ui/colors
+
+[build-img]: https://github.com/alisamar/radix-palette/actions/workflows/release.yml/badge.svg
+[build-url]: https://github.com/alisamar/radix-palette/actions/workflows/release.yml
+[downloads-img]: https://img.shields.io/npm/dt/radix-palette
+[downloads-url]: https://www.npmtrends.com/radix-palette
+[npm-img]: https://img.shields.io/npm/v/radix-palette
+[npm-url]: https://www.npmjs.com/package/radix-palette
+[issues-img]: https://img.shields.io/github/issues/alisamar/radix-palette
+[issues-url]: https://github.com/alisamar/radix-palette/issues
+[codecov-img]: https://codecov.io/gh/alisamar/radix-palette/graph/badge.svg?token=BSRY4CULXZ
+[codecov-url]: https://codecov.io/gh/alisamar/radix-palette
+[commitizen-img]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[commitizen-url]: http://commitizen.github.io/cz-cli/
+[semantic-release-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-release-url]: https://github.com/semantic-release/semantic-release
