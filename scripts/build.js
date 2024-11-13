@@ -61,10 +61,86 @@ class ColorScaleGenerator {
       const g = parseInt(hex.substring(2, 4), 16);
       const b = parseInt(hex.substring(4, 6), 16);
       const a = (parseInt(hex.substring(6, 8), 16) / 255).toFixed(2);
-      return `${r} ${g} ${b} ${a}`;
+      return `${r}, ${g}, ${b}, ${a}`;
     }
 
     throw new Error("Unsupported hex format");
+  }
+
+  /**
+   * Checks if a given value is a valid RGB or RGBA color string
+   * @param {string} value - The color value to check
+   * @returns {boolean} - True if valid RGB/RGBA color
+   */
+  isRgb(value) {
+    const rgbRegex = /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/;
+    const rgbaRegex = /^rgba\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,\s*(?:0|1|0?\.\d+)\s*\)$/;
+    return rgbRegex.test(value) || rgbaRegex.test(value);
+  }
+
+  /**
+   * Extracts numeric values from RGB/RGBA string
+   * @param {string} rgb - RGB/RGBA color string
+   * @returns {string} Space-separated RGB(A) values
+   */
+  parseRgb(rgb) {
+    // Extract numbers from rgb/rgba string
+    const values = rgb.match(/\d*\.?\d+/g);
+    if (!values) {
+      throw new Error("Invalid RGB/RGBA format");
+    }
+    return values.join(" ");
+  }
+
+  /**
+   * Checks if a given value is a valid RGB color string
+   * @param {string} value - The color value to check
+   * @returns {boolean} - True if valid RGB color
+   */
+  isRgb(value) {
+    const rgbRegex = /^rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)$/;
+    return rgbRegex.test(value);
+  }
+
+  /**
+   * Checks if a given value is a valid RGBA color string
+   * @param {string} value - The color value to check
+   * @returns {boolean} - True if valid RGBA color
+   */
+  isRgba(value) {
+    const rgbaRegex = /^rgba\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,\s*(?:0|1|0?\.\d+)\s*\)$/;
+    return rgbaRegex.test(value);
+  }
+
+  /**
+   * Extracts numeric values from RGB/RGBA string
+   * @param {string} color - RGB/RGBA color string
+   * @returns {string} Space or comma-separated RGB(A) values
+   */
+  parseRgb(color) {
+    // Extract numbers from rgb/rgba string
+    const values = color.match(/\d*\.?\d+/g);
+    if (!values) {
+      throw new Error("Invalid RGB/RGBA format");
+    }
+
+    // Use commas for RGBA, spaces for RGB
+    return this.isRgba(color) ? values.join(", ") : values.slice(0, 3).join(" ");
+  }
+
+  /**
+   * Determines the color format and processes it accordingly
+   * @param {string} value - Color value to process
+   * @returns {string} Processed color value
+   */
+  processColorValue(value) {
+    if (this.isHex(value)) {
+      return this.hexToRGB(value);
+    }
+    if (this.isRgb(value) || this.isRgba(value)) {
+      return this.parseRgb(value);
+    }
+    return value; // Return as-is for other formats
   }
 
   /**
@@ -122,11 +198,13 @@ class ColorScaleGenerator {
     if (!values || typeof values !== "object") {
       throw new Error("Invalid values provided for CSS properties");
     }
+
     return Object.entries(values)
       .map(([name, value]) => [this.toCssCasing(name), value])
-      .map(
-        ([name, value]) => `${" ".repeat(indentation)}--${name}: ${this.isHex(value) ? this.hexToRGB(value) : value};`
-      )
+      .map(([name, value]) => {
+        const processedValue = this.processColorValue(value);
+        return `${" ".repeat(indentation)}--${name}: ${processedValue};`;
+      })
       .join("\n");
   }
 
