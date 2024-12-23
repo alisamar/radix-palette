@@ -294,7 +294,8 @@ class ColorScaleGenerator {
       const srgbCssRule = this.generateSrgbCssRule(key);
       const p3CssRule = this.generateP3CssRule(key);
 
-      const content = p3CssRule ? `${srgbCssRule}\n\n${p3CssRule}` : srgbCssRule;
+      // const content = p3CssRule ? `${srgbCssRule}\n\n${p3CssRule}` : srgbCssRule;
+      const content = srgbCssRule;
 
       this.writeCssFile(key, content);
     } catch (error) {
